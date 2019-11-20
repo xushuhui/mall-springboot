@@ -1,0 +1,9 @@
+*.log
+*.class
+
+*.war
+*.ear
+.settings/
+.idea/
+*.cache
+*.tmp
