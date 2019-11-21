@@ -2,6 +2,9 @@ package com.mall.pojo;
 
 import java.util.Date;
 
+/**
+ * @author Administrator
+ */
 public class Cart {
     private Integer id;
 
