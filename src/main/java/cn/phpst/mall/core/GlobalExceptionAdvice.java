@@ -3,12 +3,14 @@ package cn.phpst.mall.core;
 import cn.phpst.mall.exception.http.HttpException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 class GlobalExceptionAdvice {
     @ExceptionHandler(Exception.class)
+    @ResponseBody
     public void handleException(HttpServletRequest req,Exception e){
 
         System.out.println("GlobalExceptionAdvice.handleException");

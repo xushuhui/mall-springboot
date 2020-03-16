@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author xushuhui
  */
 @RestController
-@RequestMapping("/banner")
+@RequestMapping("/category")
 public class CategoryController {
 }
