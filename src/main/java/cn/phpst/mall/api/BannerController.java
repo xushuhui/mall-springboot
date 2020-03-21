@@ -12,4 +12,12 @@ public class BannerController {
     public String test() {
         return "sss";
     }
+    @GetMapping("/id/{id}")
+    public String getBannerById(){
+
+    }
+    @GetMapping("/name/{name}")
+    public String getBannerByName(){
+
+    }
 }

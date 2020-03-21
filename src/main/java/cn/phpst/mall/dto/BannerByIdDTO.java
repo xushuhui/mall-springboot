@@ -6,6 +6,6 @@ import lombok.Setter;
 
 @Getter
 @NoArgsConstructor
-public class BannerDTO {
+public class BannerByIdDTO {
     private int id;
 }
