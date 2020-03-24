@@ -14,10 +14,7 @@ public class BannerController {
     @Autowired
     private BannerService bannerService;
 
-    @GetMapping("/test")
-    public String test() {
-        return "sss";
-    }
+   
 
     @GetMapping("/id/{id}")
     public String getBannerById(){
