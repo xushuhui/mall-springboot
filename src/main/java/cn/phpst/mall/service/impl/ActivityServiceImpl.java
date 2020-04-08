@@ -1,10 +1,9 @@
 package cn.phpst.mall.service.impl;
 
-import cn.phpst.mall.service.BannerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import cn.phpst.mall.service.ActivityService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ActivityServiceImpl implements BannerService {
+public class ActivityServiceImpl implements ActivityService {
 
 }

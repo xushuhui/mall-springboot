@@ -1,5 +1,6 @@
 package cn.phpst.mall.api;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ThemeController {
     @GetMapping("/by/names")
     public String getThemes(){
-
+        return null;
     }
     @GetMapping("/name/{name}")
     public String getThemeByName(){
-
+        return null;
     }
 }

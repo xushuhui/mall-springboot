@@ -14,14 +14,14 @@ public class BannerController {
     @Autowired
     private BannerService bannerService;
 
-   
+    @GetMapping("/name/{name}")
+    public String getByName(){
+        return null;
+    }
 
     @GetMapping("/id/{id}")
-    public String getBannerById(){
+    public String getById(){
         return null;
     }
-    @GetMapping("/name/{name}")
-    public String getBannerByName(){
-        return null;
-    }
+   
 }

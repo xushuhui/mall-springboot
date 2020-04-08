@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@PropertySource(value = "classpath:config/code.properties")
+@PropertySource(value = "classpath:config/codes.properties")
 public class CodeConfiguration {
 
     private Map<Integer, String> codes = new HashMap<>();
