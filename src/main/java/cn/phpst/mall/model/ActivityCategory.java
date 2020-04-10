@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-public class Spu  extends BaseEntity{
+public class ActivityCategory {
     @Id
     private long id;
 }

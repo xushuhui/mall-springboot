@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/banner")
 public class BannerController {
 
-    @Autowired
-    private BannerService bannerService;
+    public final BannerService bannerService;
+
+    public BannerController(BannerService bannerService) {
+        this.bannerService = bannerService;
+    }
 
     @GetMapping("/name/{name}")
     public Banner getByName(@PathVariable @NotBlank String name){
@@ -31,8 +34,12 @@ public class BannerController {
     }
 
     @GetMapping("/id/{id}")
-    public Banner getById(@PathVariable @Positive Integer id){
-        return null;
+    public Banner getById(@PathVariable @Positive Long id){
+        Banner banner = bannerService.getById(id);
+        if(banner == null){
+            throw new NotFoundException(10001);
+        }
+        return banner;
     }
    
 }
