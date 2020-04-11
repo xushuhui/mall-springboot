@@ -18,7 +18,7 @@ public class Banner extends BaseEntity {
     private String img;
     private String title;
 
-    @OneToMany()
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "bannerId")
     private List<BannerItem> items;
 }

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Order extends BaseEntity {
+public class Orders extends BaseEntity {
     @Id
     private long id;
 

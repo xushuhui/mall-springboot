@@ -19,7 +19,6 @@ public class BannerItem  extends BaseEntity{
    
     private String keyword;
 
-    
     private Long bannerId;
     
 }
