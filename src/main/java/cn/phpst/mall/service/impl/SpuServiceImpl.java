@@ -2,19 +2,26 @@ package cn.phpst.mall.service.impl;
 
 
 import cn.phpst.mall.model.Spu;
+import cn.phpst.mall.repository.SpuRepository;
 import cn.phpst.mall.service.SpuService;
-
-import java.util.List;
-
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SpuServiceImpl implements SpuService 
 {
-    public Spu getById(Long id){
-        return null;
+    private final SpuRepository spuRepository;
+
+    public SpuServiceImpl(SpuRepository spuRepository) {
+        this.spuRepository = spuRepository;
     }
-    public List<Spu> getLatestPaging(){
+
+    @Override
+    public Spu getById(Long id){
+        return this.spuRepository.findOneById(id);
+    }
+    @Override
+    public Page<Spu> getLatestPaging(Integer page, Integer count){
         return null;
     }
 }
