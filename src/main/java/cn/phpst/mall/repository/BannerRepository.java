@@ -6,7 +6,7 @@ import cn.phpst.mall.model.Banner;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BannerRepository extends JpaRepository<Banner,Long> {
-    Banner findOneById(Long id);
+public interface BannerRepository extends JpaRepository<Banner,Integer> {
+    Banner findOneById(Integer id);
     Banner findOneByName(String name);
 }

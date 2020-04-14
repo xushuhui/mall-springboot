@@ -31,7 +31,7 @@ public class SpuController extends BaseEntity {
     }
 
     @GetMapping("/id/{id}/detail")
-    public Spu getById(@PathVariable @Positive Long id) {
+    public Spu getById(@PathVariable @Positive Integer id) {
         Spu spu = this.spuService.getById(id);
         if (spu == null) {
             throw new NotFoundException(10001);

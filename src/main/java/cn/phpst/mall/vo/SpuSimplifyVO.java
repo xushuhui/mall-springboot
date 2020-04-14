@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SpuSimplifyVO {
-    private Long id;
+    private Integer id;
     private String title;
     private String subtitle;
     private String img;

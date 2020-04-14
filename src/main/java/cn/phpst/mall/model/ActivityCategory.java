@@ -10,5 +10,5 @@ import javax.persistence.*;
 @Setter
 public class ActivityCategory {
     @Id
-    private long id;
+    private Integer id;
 }

@@ -12,6 +12,6 @@ import javax.persistence.Id;
 @Setter
 public class Tag extends BaseEntity {
     @Id
-    private long id;
+    private Integer id;
 
 }

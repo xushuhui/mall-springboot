@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 public class BannerItem  extends BaseEntity{
     @Id    
-    private long id;
+    private Integer id;
     private String img;
 
     private String name;
@@ -19,6 +19,6 @@ public class BannerItem  extends BaseEntity{
    
     private String keyword;
 
-    private Long bannerId;
+    private Integer bannerId;
     
 }

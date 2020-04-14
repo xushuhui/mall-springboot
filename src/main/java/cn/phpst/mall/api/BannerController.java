@@ -32,7 +32,7 @@ public class BannerController {
     }
 
     @GetMapping("/id/{id}")
-    public Banner getById(@PathVariable @Positive Long id){
+    public Banner getById(@PathVariable @Positive Integer id){
         Banner banner = bannerService.getById(id);
         if(banner == null){
             throw new NotFoundException(10001);

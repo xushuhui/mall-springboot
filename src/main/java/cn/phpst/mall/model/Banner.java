@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 public class Banner extends BaseEntity {
     @Id
-    private long id;
+    private Integer id;
 
     private String name;
     private String descrition;

@@ -18,7 +18,7 @@ public class BannerServiceImpl implements BannerService {
         return bannerRepository.findOneByName(name);
     }
     @Override
-    public Banner getById(Long id){
+    public Banner getById(Integer id){
         return bannerRepository.findOneById(id);
     }
 

@@ -9,5 +9,5 @@ import javax.persistence.*;
 @Setter
 public class ActivityCoupon extends BaseEntity {
     @Id
-    private long id;
+    private Integer id;
 }

@@ -5,5 +5,5 @@ import cn.phpst.mall.model.Banner;
 public interface BannerService {
     Banner getByName(String name);
 
-    Banner getById(Long id);
+    Banner getById(Integer id);
 }

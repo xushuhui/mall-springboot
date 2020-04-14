@@ -17,7 +17,7 @@ public class SpuServiceImpl implements SpuService
     }
 
     @Override
-    public Spu getById(Long id){
+    public Spu getById(Integer id){
         return this.spuRepository.findOneById(id);
     }
     @Override

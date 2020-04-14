@@ -5,6 +5,6 @@ import org.springframework.data.domain.Page;
 
 
 public interface SpuService {
-     Spu getById(Long id);
+     Spu getById(Integer id);
      Page<Spu> getLatestPaging(Integer page, Integer count);
 }
