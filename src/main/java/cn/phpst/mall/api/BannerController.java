@@ -3,6 +3,8 @@ package cn.phpst.mall.api;
 import cn.phpst.mall.exception.http.NotFoundException;
 import cn.phpst.mall.model.Banner;
 import cn.phpst.mall.service.BannerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +16,11 @@ import javax.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/banner")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class BannerController {
 
     public final BannerService bannerService;
 
-    public BannerController(BannerService bannerService) {
-        this.bannerService = bannerService;
-    }
 
     @GetMapping("/name/{name}")
     public Banner getByName(@PathVariable @NotBlank String name){

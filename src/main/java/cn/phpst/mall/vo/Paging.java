@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Paging<T> {
-    private Integer total;
+    private Long total;
     private Integer count;
     private Integer page;
     private Integer totalPage;
