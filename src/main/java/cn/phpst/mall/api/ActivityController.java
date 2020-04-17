@@ -1,17 +1,17 @@
 package cn.phpst.mall.api;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import cn.phpst.mall.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 @RequestMapping("/activity")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+
 
 public class ActivityController {
-
-    private final ActivityService activityService;
+    @Autowired
+    private ActivityService activityService;
 
 
 }
