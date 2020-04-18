@@ -12,4 +12,17 @@ import javax.persistence.Id;
 public class Sku extends BaseEntity {
     @Id
     private Integer id;
+    private BigDecimal price;
+    private BigDecimal discountPrice;
+    private Boolean online;
+    private String img;
+    private String title;
+    private Integer spuId;
+    private Integer categoryId;
+    private Integer rootCategoryId;
+
+    private String specs;
+    private String code;
+    private Integer stock;
+
 }
