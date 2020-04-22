@@ -5,7 +5,7 @@ import cn.phpst.mall.model.Category;
 import cn.phpst.mall.model.GridCategory;
 import cn.phpst.mall.service.CategoryService;
 import cn.phpst.mall.service.GridCategoryService;
-import cn.phpst.mall.vo.CategoriesAllVo;
+import cn.phpst.mall.vo.CategoriesAllVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +26,9 @@ public class CategoryController {
     private GridCategoryService gridCategoryService;
 
     @GetMapping("/all")
-    public CategoriesAllVo getAll() {
+    public CategoriesAllVO getAll() {
         Map<Integer, List<Category>> categories = categoryService.getAll();
-        return new CategoriesAllVo(categories);
+        return new CategoriesAllVO(categories);
     }
 
     @GetMapping("/grid/all")
