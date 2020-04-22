@@ -12,7 +12,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public class SpuServiceImpl implements SpuService {
     @Autowired
     private SpuRepository spuRepository;
