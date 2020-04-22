@@ -1,18 +1,11 @@
-package cn.phpst.mall.model;
+package cn.phpst.mall.vo;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.List;
-
-@Entity
 @Getter
 @Setter
-public class Theme extends BaseEntity {
-    @Id
+public class ThemePureVO {
     private Integer id;
     private String title;
     private String description;
@@ -23,6 +16,4 @@ public class Theme extends BaseEntity {
     private Boolean online;
     private String titleImg;
     private String tplName;
-    @ManyToMany()
-    private List<Spu> spuList;
 }
