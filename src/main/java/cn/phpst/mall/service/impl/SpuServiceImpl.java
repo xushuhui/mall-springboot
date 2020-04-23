@@ -27,6 +27,8 @@ public class SpuServiceImpl implements SpuService {
         return this.spuRepository.findAll(page);
     }
 
+
+    @Override
     public Page<Spu> getByCategory(Integer cid, Boolean isRoot, Integer pageNum, Integer count) {
         Pageable page = PageRequest.of(pageNum, count);
         return this.spuRepository.findAll(page);

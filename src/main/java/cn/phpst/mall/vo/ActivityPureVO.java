@@ -1,19 +1,13 @@
-package cn.phpst.mall.model;
+package cn.phpst.mall.vo;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.Date;
-import java.util.List;
 
-@Entity
 @Getter
 @Setter
-public class Activity extends BaseEntity {
-    @Id
+public class ActivityPureVO {
     private Integer id;
     private String name;
     private String title;
@@ -22,8 +16,4 @@ public class Activity extends BaseEntity {
     private String remark;
     private Date startTime;
     private Date endTime;
-
-    @OneToMany()
-    private List<Coupon> coupons;
-
 }
