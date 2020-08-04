@@ -8,7 +8,20 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Where(clause = "delete_time is null")
 public class User  extends BaseEntity{
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+    private String openid;
+
+    private String nickname;
+
+    private String email;
+
+    private String mobile;
+
+    private String password;
+
+    private Long unifyUid;
 }

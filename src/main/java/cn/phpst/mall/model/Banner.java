@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Where(clause = "delete_time is null ")
 public class Banner extends BaseEntity {
     @Id
     private Integer id;

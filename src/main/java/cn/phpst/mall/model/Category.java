@@ -9,6 +9,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
+@Where(clause = "delete_time is null and online = 1")
 public class Category extends BaseEntity {
     @Id
     private Integer id;
