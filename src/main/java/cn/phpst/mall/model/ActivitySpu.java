@@ -12,4 +12,7 @@ public class ActivitySpu  extends BaseEntity {
     @Id
     private Integer id;
 
+    private Integer activityId;
+    private Integer spuId;
+    private Integer participation;
 }

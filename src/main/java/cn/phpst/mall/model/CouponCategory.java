@@ -13,5 +13,6 @@ import javax.persistence.Id;
 public class CouponCategory extends BaseEntity {
     @Id
     private Integer id;
-
+  private Integer categoryId;
+    private Integer couponId;
 }

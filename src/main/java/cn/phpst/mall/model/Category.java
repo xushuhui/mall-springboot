@@ -19,5 +19,7 @@ public class Category extends BaseEntity {
     private String img;
     private Integer parentId;
     private Integer index;
+    private Integer online;
+    private Integer level;
 //    private List<Coupon> couponList;
 }

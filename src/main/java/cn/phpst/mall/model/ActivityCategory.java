@@ -11,4 +11,7 @@ import javax.persistence.*;
 public class ActivityCategory {
     @Id
     private Integer id;
+
+    private Integer categoryId;
+    private Integer activityId;
 }

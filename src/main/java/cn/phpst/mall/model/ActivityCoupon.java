@@ -10,4 +10,8 @@ import javax.persistence.*;
 public class ActivityCoupon extends BaseEntity {
     @Id
     private Integer id;
+
+    private Integer couponId;
+    private Integer activityId;
+
 }
