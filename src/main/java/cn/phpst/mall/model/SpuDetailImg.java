@@ -12,4 +12,7 @@ import javax.persistence.Id;
 public class SpuDetailImg extends BaseEntity {
     @Id
     private Integer id;
+    private String img;
+    private Integer spuId;
+    private Integer index;
 }

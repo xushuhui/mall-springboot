@@ -13,5 +13,7 @@ import javax.persistence.Id;
 public class SpecValue extends BaseEntity {
     @Id
     private Integer id;
-
+    private String value;
+    private Integer specId;
+    private String extend;
 }

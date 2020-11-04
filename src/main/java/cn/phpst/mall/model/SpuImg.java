@@ -12,4 +12,6 @@ import javax.persistence.Id;
 public class SpuImg extends BaseEntity {
     @Id
     private Integer id;
+        private String img;
+    private Integer spuId;
 }

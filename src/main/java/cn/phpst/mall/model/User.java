@@ -24,4 +24,5 @@ public class User  extends BaseEntity{
     private String password;
 
     private Long unifyUid;
+    private String wxProfile;
 }

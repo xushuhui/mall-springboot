@@ -12,4 +12,9 @@ import javax.persistence.*;
 public class UserCoupon extends BaseEntity {
     @Id
     private Integer id;
+
+    private Integer userId;
+    private Integer couponId;
+    private Short status;
+    private Integer orderId;
 }

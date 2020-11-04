@@ -14,5 +14,7 @@ import javax.persistence.Id;
 public class ThemeSpu extends BaseEntity {
     @Id
     private Integer id;
+    private Integer themeId;
+    private Integer spuId;
 
 }

@@ -25,5 +25,6 @@ public class Spu extends BaseEntity {
     private String description;
     private String tags;
     private String forThemeImg;
+     private String spuThemeImg;
 
 }

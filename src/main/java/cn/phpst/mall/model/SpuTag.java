@@ -10,8 +10,9 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class SpuTag extends BaseEntity {
+public class SpuTag {
     @Id
     private Integer id;
-
+   private Integer spuId;
+      private Integer tagId;
 }

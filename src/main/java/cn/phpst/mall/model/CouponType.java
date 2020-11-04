@@ -13,5 +13,7 @@ import javax.persistence.Id;
 public class CouponType extends BaseEntity {
     @Id
     private Integer id;
-
+     private String name;
+     private Integer code;
+         private String description;
 }
