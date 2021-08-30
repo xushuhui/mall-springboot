@@ -1,6 +1,8 @@
 package cn.phpst.mall.core;
 
+import cn.phpst.mall.core.configuration.ExceptionCodeConfiguration;
 import cn.phpst.mall.exception.http.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionAdvice {
+    @Autowired
+    private ExceptionCodeConfiguration codeConfiguration;
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
