@@ -1,6 +1,6 @@
 
 server:
-    port: 8088
+    port: 8000
 
 api-package: api
 spring:
