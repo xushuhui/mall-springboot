@@ -1,8 +1,8 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
-import cn.phpst.mallexample.model.Category;
-import cn.phpst.mallexample.repository.CategoryRepository;
-import cn.phpst.mallexample.service.CategoryService;
+import cn.phpst.mall.model.Category;
+import cn.phpst.mall.repository.CategoryRepository;
+import cn.phpst.mall.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

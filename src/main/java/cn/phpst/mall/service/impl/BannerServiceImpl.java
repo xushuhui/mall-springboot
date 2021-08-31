@@ -1,8 +1,8 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
-import cn.phpst.mallexample.model.Banner;
-import cn.phpst.mallexample.repository.BannerRepository;
-import cn.phpst.mallexample.service.BannerService;
+import cn.phpst.mall.model.Banner;
+import cn.phpst.mall.repository.BannerRepository;
+import cn.phpst.mall.service.BannerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
