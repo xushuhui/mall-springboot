@@ -1,4 +1,4 @@
-package cn.phpst.mallexample.api;
+package cn.phpst.mall.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,12 +1,11 @@
 package cn.phpst.mall.core;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 
 @Getter
 @Setter
-@AllArgsConstructor
+@AllargsConstructor
 public class UnifyResponse {
     private Integer Code;
     private String Message;
