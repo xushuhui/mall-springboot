@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service;
+package cn.phpst.mall.service;
 
-import cn.phpst.mallexample.model.Theme;
+import cn.phpst.mall.model.Theme;
 
 import java.util.List;
 import java.util.Optional;

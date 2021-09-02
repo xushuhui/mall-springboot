@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service;
+package cn.phpst.mall.service;
 
-import cn.phpst.mallexample.model.GridCategory;
+import cn.phpst.mall.model.GridCategory;
 
 import java.util.List;
 

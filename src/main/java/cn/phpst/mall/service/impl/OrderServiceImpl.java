@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
-import cn.phpst.mallexample.service.OrderService;
+import cn.phpst.mall.service.OrderService;
 import org.springframework.stereotype.Service;
 
 @Service

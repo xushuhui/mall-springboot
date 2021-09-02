@@ -1,9 +1,9 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
 
-import cn.phpst.mallexample.model.Spu;
-import cn.phpst.mallexample.repository.SpuRepository;
-import cn.phpst.mallexample.service.SpuService;
+import cn.phpst.mall.model.Spu;
+import cn.phpst.mall.repository.SpuRepository;
+import cn.phpst.mall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

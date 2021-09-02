@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service;
+package cn.phpst.mall.service;
 
-import cn.phpst.mallexample.model.Banner;
+import cn.phpst.mall.model.Banner;
 
 public interface BannerService {
     Banner getByName(String name);

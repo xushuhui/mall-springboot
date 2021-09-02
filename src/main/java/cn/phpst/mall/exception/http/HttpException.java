@@ -6,5 +6,5 @@ import org.springframework.http.HttpStatus;
 @Getter
 public class HttpException extends RuntimeException{
     protected int code;
-    protected int httpStatus=500;
+    protected int httpStatus=HttpStatus.INTERNAL_SERVER_ERROR.value();
 }

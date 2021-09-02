@@ -1,8 +1,8 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
-import cn.phpst.mallexample.model.Theme;
-import cn.phpst.mallexample.repository.ThemeRepository;
-import cn.phpst.mallexample.service.ThemeService;
+import cn.phpst.mall.model.Theme;
+import cn.phpst.mall.repository.ThemeRepository;
+import cn.phpst.mall.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service;
+package cn.phpst.mall.service;
 
-import cn.phpst.mallexample.model.Spu;
+import cn.phpst.mall.model.Spu;
 import org.springframework.data.domain.Page;
 
 

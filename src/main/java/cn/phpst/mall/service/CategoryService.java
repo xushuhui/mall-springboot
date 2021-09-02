@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.service;
+package cn.phpst.mall.service;
 
-import cn.phpst.mallexample.model.Category;
+import cn.phpst.mall.model.Category;
 
 import java.util.List;
 import java.util.Map;

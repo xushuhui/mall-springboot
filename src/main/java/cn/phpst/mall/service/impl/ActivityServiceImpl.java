@@ -1,8 +1,8 @@
-package cn.phpst.mallexample.service.impl;
+package cn.phpst.mall.service.impl;
 
-import cn.phpst.mallexample.model.Activity;
-import cn.phpst.mallexample.repository.ActivityRepository;
-import cn.phpst.mallexample.service.ActivityService;
+import cn.phpst.mall.model.Activity;
+import cn.phpst.mall.repository.ActivityRepository;
+import cn.phpst.mall.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
