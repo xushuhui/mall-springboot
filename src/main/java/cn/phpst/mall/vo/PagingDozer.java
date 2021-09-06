@@ -1,4 +1,4 @@
-package cn.phpst.mallexample.vo;
+package cn.phpst.mall.vo;
 
 import com.github.dozermapper.core.DozerBeanMapperBuilder;
 import com.github.dozermapper.core.Mapper;

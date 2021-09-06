@@ -1,6 +1,6 @@
-package cn.phpst.mallexample.vo;
+package cn.phpst.mall.vo;
 
-import cn.phpst.mallexample.model.Category;
+import cn.phpst.mall.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.BeanUtils;
