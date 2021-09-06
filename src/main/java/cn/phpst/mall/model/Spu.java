@@ -3,8 +3,8 @@ package cn.phpst.mall.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,4 +27,15 @@ public class Spu extends BaseEntity {
     private String forThemeImg;
     private String spuThemeImg;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "skuId")
+    private List<Sku> sku;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "spuId")
+    private List<SpuImg> spuImgs;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "spuId")
+    private List<SpuDetailImg> spuDetailImgs ;
 }
