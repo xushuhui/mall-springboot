@@ -5,8 +5,8 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllargsConstructor
+@AllArgsConstructor
 public class UnifyResponse {
-    private Long Code;
+    private int Code;
     private String Message;
 }

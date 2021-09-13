@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface SpuRepository extends JpaRepository<Spu,Integer>  {
     Spu findOneById(Integer id);
 
-    Page<Spu> findByCategoryId(Integer cid, Pageable pageable);
+    Page<Spu> findByCategoryIdOrderByCreateTimeDesc(Long cid, Pageable pageable);
+    Page<Spu> findByRootCategoryIdOrderByCreateTime(Long cid, Pageable pageable);
 }

@@ -29,8 +29,15 @@ public class SpuServiceImpl implements SpuService {
 
 
     @Override
-    public Page<Spu> getByCategory(Integer cid, Boolean isRoot, Integer pageNum, Integer count) {
+    public Page<Spu> getByCategory(Long cid, Boolean isRoot, Integer pageNum, Integer count) {
+
         Pageable page = PageRequest.of(pageNum, count);
-        return this.spuRepository.findAll(page);
+
+        if (isRoot){
+            return this.spuRepository.findByRootCategoryIdOrderByCreateTime(cid,page);
+        }else {
+            return this.spuRepository.findByCategoryIdOrderByCreateTimeDesc(cid,page);
+        }
+
     }
 }

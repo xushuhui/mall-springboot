@@ -8,5 +8,5 @@ public interface SpuService {
      Spu getById(Integer id);
      Page<Spu> getLatestPaging(Integer page, Integer count);
 
-     Page<Spu> getByCategory(Integer cid, Boolean isRoot, Integer pageNum, Integer count);
+     Page<Spu> getByCategory(Long cid, Boolean isRoot, Integer pageNum, Integer count);
 }
