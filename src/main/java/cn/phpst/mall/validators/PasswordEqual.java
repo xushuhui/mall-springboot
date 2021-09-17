@@ -1,4 +1,4 @@
-package cn.phpst.mallexample.validators;
+package cn.phpst.mall.validators;
 
 import javax.validation.Payload;
 
