@@ -25,7 +25,7 @@ public class GlobalExceptionAdvice {
     public UnifyResponse handleException(HttpServletRequest req,Exception e){
         String requestUrl = req.getRequestURI();
         String method = req.getMethod();
-        UnifyResponse resp = new UnifyResponse(1,"s");
+        UnifyResponse resp = new UnifyResponse(9999, "服务器异常");
         return resp;
     }
     @ExceptionHandler(HttpException.class)
@@ -38,4 +38,18 @@ public class GlobalExceptionAdvice {
         return r;
     }
 
-}
+    @ResponseBody
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public UnifyResponse handBeanValidation(HttpServletRequest req, MethodArgumentNotValidException e) {
+        List<ObjectError> errors = e.getBindingResult().getAllErrors();
+        String message = this.formatAllErrorMessages(errors);
+        return new UnifyResponse(10001, message);
+    }
+
+    private String formatAllErrorMessages(List<ObjectError> errors) {
+        StringBuffer buffer = new StringBuffer();
+        errors.forEach(error -> buffer.append(error.getDefaultMessage()).append(';')
+        );
+        return buffer.toString();
+    }
+    }

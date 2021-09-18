@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
 @Constraint(validatedBy = PasswordValidator.class )
-public @interface PasswordEqual {
+public @interface TokenPassword {
     int min() default 4;
 
     int max() default 6;

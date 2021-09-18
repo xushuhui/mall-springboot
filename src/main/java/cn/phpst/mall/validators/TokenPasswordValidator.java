@@ -5,7 +5,7 @@ import com.lin.missyou.dto.PersonDTO;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class PasswordValidator implements ConstraintValidator<PasswordEqual, PersonDTO> {
+public class TokenPasswordValidator implements ConstraintValidator<PasswordEqual, PersonDTO> {
     private int min;
     private int max;
     @Override
