@@ -7,13 +7,13 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
-@Constraint(validatedBy = PasswordValidator.class )
+@Constraint(validatedBy = TokenPasswordValidator.class )
 public @interface TokenPassword {
-    int min() default 4;
+    int min() default 6;
 
-    int max() default 6;
+    int max() default 32;
 
-    String message() default "passwords are not equal";
+    String message() default "字段不符合要求";
 
     Class<?>[] groups() default {};
 

@@ -11,4 +11,7 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: true
 
-
+wx:
+  appid:
+  appsecret:
+  code2session:

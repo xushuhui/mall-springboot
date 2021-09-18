@@ -3,6 +3,7 @@ package cn.phpst.mall.model;
 import cn.phpst.mall.util.ListAndJson;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Where(clause = "delete_time is null ")
 public class Sku extends BaseEntity {
     @Id
     private Long id;
