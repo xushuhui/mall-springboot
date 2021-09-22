@@ -7,6 +7,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-
-    open-in-view: false
     show-sql: true
+    format_sql: true
+  security:
+    jwt-key: 123456
+    token-expired-in: 8640000

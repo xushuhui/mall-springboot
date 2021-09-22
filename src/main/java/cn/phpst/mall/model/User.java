@@ -1,11 +1,18 @@
 package cn.phpst.mall.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import cn.phpst.mall.util.MapAndJson;
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Getter
 @Setter
@@ -25,5 +32,12 @@ public class User extends BaseEntity {
     private String password;
 
     private Long unifyUid;
-    private String wxProfile;
+
+    private String group;
+    @Convert(converter = MapAndJson.class)
+    private Map<String, Object> wxProfile;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userCoupon", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "couponId"))
+    private List<Coupon> couponList;
 }
