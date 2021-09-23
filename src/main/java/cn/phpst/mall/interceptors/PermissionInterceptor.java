@@ -1,5 +1,6 @@
 package cn.phpst.mall.interceptors;
 
+import cn.phpst.mall.exception.http.ForbiddenException;
 import cn.phpst.mall.exception.http.UnAuthenticatedException;
 import cn.phpst.mall.util.JwtToken;
 import com.auth0.jwt.interfaces.Claim;
@@ -22,6 +23,9 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             ScopeLevel scopeLevel = handlerMethod.getMethod().getAnnotation(ScopeLevel.class);
+            if (scopeLevel == null) {
+                return Optional.empty();
+            }
             return Optional.of(scopeLevel);
         }
         return Optional.empty();
@@ -40,14 +44,24 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         if (!beartoken.startsWith("Bearer")) {
             throw new UnAuthenticatedException(10004);
         }
-        String token = beartoken.split(" ")[1];
+        String tokens[] = beartoken.split(" ");
+        if (!(tokens.length == 2)) {
+            throw new UnAuthenticatedException(10004);
+        }
+        String token = tokens[1];
         Optional<Map<String, Claim>> optionalMap = JwtToken.getClaims(token);
         Map<String, Claim> map = optionalMap.orElseThrow(() -> new UnAuthenticatedException(10004));
 
-        return true;
+        boolean valid = this.hasPermission(scopeLevel.get(), map);
+        return valid;
     }
 
     private boolean hasPermission(ScopeLevel scopeLevel, Map<String, Claim> map) {
+        Integer level = scopeLevel.value();
+        Integer scope = map.get("scope").asInt();
+        if (level > scope) {
+            throw new ForbiddenException(10005);
+        }
         return true;
     }
 

@@ -1,8 +1,10 @@
 package cn.phpst.mall.api;
 
 import cn.phpst.mall.dto.TokenGetDTO;
+import cn.phpst.mall.dto.TokenVerifyDTO;
 import cn.phpst.mall.exception.http.NotFoundException;
 import cn.phpst.mall.service.WechatAuthenticationService;
+import cn.phpst.mall.util.JwtToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
