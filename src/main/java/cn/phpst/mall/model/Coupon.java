@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,9 +24,19 @@ public class Coupon extends BaseEntity {
     private BigDecimal fullMoney;
     private BigDecimal minus;
     private BigDecimal rate;
-    private Short type;
-    private Integer valitiy;
+    private Integer type;
+    private Integer valitiy;//领取有效期
     private Long activityId;
     private String remark;
-    private Short wholeStore;
+    private Boolean wholeStore;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "couponList")
+
+    @JoinTable(name = "coupon_category", joinColumns = @JoinColumn(name = "coupon_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categoryList;
+
+    @ManyToOne
+    @JoinTable(name = "coupon", joinColumns = @JoinColumn(name = "activity_id"))
+    @JoinColumn(name = "activityId")
+    private Activity activity;
 }

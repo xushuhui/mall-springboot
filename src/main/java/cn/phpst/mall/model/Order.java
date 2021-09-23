@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Where(clause = "delete_time is null ")
-public class Orders extends BaseEntity {
+public class Order extends BaseEntity {
     @Id
     private Long id;
     private String orderNo;
