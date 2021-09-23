@@ -31,7 +31,6 @@ public class WechatAuthenticationService {
         RestTemplate rest = new RestTemplate();
         WechatSessionDTO session = rest.getForObject(url, WechatSessionDTO.class);
 
-
         return this.registerUser(session);
     }
 

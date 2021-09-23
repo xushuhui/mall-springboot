@@ -36,5 +36,11 @@ public class TokenController {
         map.put("token", token);
         return map;
     }
-
+    @PostMapping("/verify")
+    public Map<String, Boolean> getToken(@RequestBody @Validated TokenVerifyDTO data) {
+            Map<String, Boolean> map = new HashMap<>();
+            Boolean valid = JwtToken.verifyToken(data.getToken());
+            map.put("is_valid", valid);
+            return map;
+    }
 }

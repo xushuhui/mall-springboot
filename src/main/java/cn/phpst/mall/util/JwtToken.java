@@ -26,6 +26,19 @@ public class JwtToken {
     public static void setExpiredTimeIn(Integer expiredTimeIn) {
         JwtToken.expiredTimeIn = expiredTimeIn;
     }
+      public static Boolean verifyToken(String token) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(jwtKey);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .build();
+            DecodedJWT jwt = verifier.verify(token);
+           
+        } catch (JWTVerificationException e) {
+            return false;
+        }
+        
+        return true;
+    }
 
     public static String makeToken(Long uid) {
         return JwtToken.getToken(uid, JwtToken.defaultScope);
