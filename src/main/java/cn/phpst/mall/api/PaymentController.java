@@ -10,8 +10,6 @@ public class PaymentController {
 
      @PostMapping("/pay/order/{id}")
      public Map<String,String> preWechatOrder(@PathVariable(name="id") Long id) {
-         
-  
          return "payment";
      }
 }

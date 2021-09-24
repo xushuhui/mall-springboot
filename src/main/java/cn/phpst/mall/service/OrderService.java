@@ -1,4 +1,8 @@
 package cn.phpst.mall.service;
 
-public interface OrderService {
+import cn.phpst.mall.service.OrderService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
 }

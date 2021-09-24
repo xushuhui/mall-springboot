@@ -1,4 +1,4 @@
-package cn.phpst.mall.service.impl;
+package cn.phpst.mall.service;
 
 import cn.phpst.mall.model.Coupon;
 import cn.phpst.mall.repository.ActivityRepository;
@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class CounponServiceImpl implements CouponService {
+public class CounponService {
     @Autowired
     private CouponRepository couponRepository;
     @Autowired
