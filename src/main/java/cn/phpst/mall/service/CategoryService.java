@@ -2,7 +2,6 @@ package cn.phpst.mall.service;
 
 import cn.phpst.mall.model.Category;
 import cn.phpst.mall.repository.CategoryRepository;
-import cn.phpst.mall.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +14,14 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Override
     public List<Category> getAllRoots() {
         return null;
     }
 
-    @Override
     public List<Category> getByParentId() {
         return null;
     }
 
-    @Override
     public Map<Integer, List<Category>> getAll() {
         List<Category> roots = categoryRepository.findAllByIsRootOrderByIndexAsc(true);
         List<Category> subs = categoryRepository.findAllByIsRootOrderByIndexAsc(false);

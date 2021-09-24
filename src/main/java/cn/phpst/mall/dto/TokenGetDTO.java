@@ -1,15 +1,11 @@
 package cn.phpst.mall.dto;
 
 
-import cn.phpst.mall.enumeration.LoginType;
+import cn.phpst.mall.core.enumeration.LoginType;
 import cn.phpst.mall.validators.TokenPassword;
-import lombok.*;
-import org.hibernate.validator.constraints.Length;
+import lombok.Builder;
+import lombok.Getter;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Builder

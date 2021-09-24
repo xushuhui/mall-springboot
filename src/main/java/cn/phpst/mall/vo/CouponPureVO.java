@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,7 +37,6 @@ public class CouponPureVO {
     }
 
     public static List<CouponPureVO> getList(List<Coupon> couponList) {
-        List<CouponPureVO> vos = new ArrayList<>();
         return couponList.stream().map(CouponPureVO::new).collect(Collectors.toList());
     }
 }

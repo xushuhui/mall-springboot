@@ -2,7 +2,6 @@ package cn.phpst.mall.service;
 
 import cn.phpst.mall.model.Theme;
 import cn.phpst.mall.repository.ThemeRepository;
-import cn.phpst.mall.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +13,10 @@ public class ThemeService {
     @Autowired
     private ThemeRepository themeRepository;
 
-    @Override
     public Optional<Theme> findByName(String name) {
         return themeRepository.findByName(name);
     }
 
-    @Override
     public List<Theme> findByNames(List<String> names) {
         return themeRepository.findByNames(names);
     }

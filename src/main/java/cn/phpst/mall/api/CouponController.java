@@ -1,33 +1,61 @@
 package cn.phpst.mall.api;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
+import cn.phpst.mall.core.interceptors.ScopeLevel;
+import cn.phpst.mall.model.Coupon;
+import cn.phpst.mall.service.CounponService;
+import cn.phpst.mall.vo.CouponPureVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.List;
 
 @RestController
 @RequestMapping("/coupon")
 public class CouponController {
-    
-     @GetMapping("/pay/order/{id}")
-     public String getByCategory(@PathVariable(name="cid") Long cid) {
-         return "payment";
-     }
-        @GetMapping("/whole_store")
-     public String getWholeStore() {
-         return "payment";
-     }
-        @GetMapping("/myselft/by/status/{status}")
-     public String getMyself(@PathVariable(name="status") Long status) {
-         return "payment";
-     }
-        @GetMapping("/myselft/available/with_category")
-     public String getAvailable() {
-         return "payment";
-     }
-      @PostMapping("/collect/{id}")
-     public String collect() {
-         return "payment";
-     }
+
+    @Autowired
+    private CounponService counponService;
+
+    @GetMapping("/pay/order/{id}")
+    public List<CouponPureVO> getByCategory(@PathVariable Long cid) {
+        List<Coupon> coupons = counponService.getByCategory(cid);
+        if (coupons.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<CouponPureVO> vos = CouponPureVO.getList(coupons);
+        return vos;
+    }
+
+    @GetMapping("/whole_store")
+    public List<CouponPureVO> getWholeStore() {
+
+        List<Coupon> coupons = counponService.getWholeStoreCoupons();
+        if (coupons.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<CouponPureVO> vos = CouponPureVO.getList(coupons);
+        return vos;
+    }
+
+    @ScopeLevel
+    @GetMapping("/myself/by/status/{status}")
+    public String getMyCouponByStatus(@PathVariable(name = "status") Integer status) {
+
+        return "payment";
+    }
+
+    @GetMapping("/myself/available/with_category")
+    public String getAvailable() {
+        return "payment";
+    }
+
+    @ScopeLevel
+    @PostMapping("/collect/{id}")
+    public String collectCoupon(@PathVariable Long id) {
+
+        return "payment";
+    }
 
     //POST coupon/collect/{id}
 }

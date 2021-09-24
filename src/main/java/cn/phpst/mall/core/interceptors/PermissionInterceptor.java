@@ -1,9 +1,14 @@
-package cn.phpst.mall.interceptors;
+package cn.phpst.mall.core.interceptors;
 
+import cn.phpst.mall.core.LocalUser;
 import cn.phpst.mall.exception.http.ForbiddenException;
 import cn.phpst.mall.exception.http.UnAuthenticatedException;
+import cn.phpst.mall.model.User;
+import cn.phpst.mall.service.UserSevice;
 import cn.phpst.mall.util.JwtToken;
 import com.auth0.jwt.interfaces.Claim;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.Optional;
 
+@Component
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
+    @Autowired
+    private UserSevice userSevice;
+
     public PermissionInterceptor() {
         super();
     }
@@ -53,7 +62,17 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         Map<String, Claim> map = optionalMap.orElseThrow(() -> new UnAuthenticatedException(10004));
 
         boolean valid = this.hasPermission(scopeLevel.get(), map);
+        if (valid) {
+            setToThreadLocal(map);
+        }
         return valid;
+    }
+
+    private void setToThreadLocal(Map<String, Claim> map) {
+        Long uid = map.get("uid").asLong();
+        Integer scope = map.get("scope").asInt();
+        User user = userSevice.getUserById(uid);
+        LocalUser.set(user, scope);
     }
 
     private boolean hasPermission(ScopeLevel scopeLevel, Map<String, Claim> map) {

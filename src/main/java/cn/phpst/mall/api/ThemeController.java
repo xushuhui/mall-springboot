@@ -35,9 +35,7 @@ public class ThemeController {
     }
 
     @GetMapping("/name/{name}/with_spu")
-    public Theme getThemeByNameWithSpu(@PathVariable(name = "name") String name,
-                                       @RequestParam(defaultValue = "0") Integer start,
-                                       @RequestParam(defaultValue = "10") Integer count) {
+    public Theme getThemeByNameWithSpu(@PathVariable(name = "name") String name) {
         Optional<Theme> optionalTheme = this.themeService.findByName(name);
         return optionalTheme.orElseThrow(() -> new NotFoundException(30001));
     }

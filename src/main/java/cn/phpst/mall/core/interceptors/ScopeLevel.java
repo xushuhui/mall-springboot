@@ -1,4 +1,4 @@
-package cn.phpst.mall.interceptors;
+package cn.phpst.mall.core.interceptors;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
