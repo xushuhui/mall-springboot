@@ -1,5 +1,6 @@
 package cn.phpst.mall.api;
 
+import cn.phpst.mall.core.LocalUser;
 import cn.phpst.mall.core.interceptors.ScopeLevel;
 import cn.phpst.mall.model.Coupon;
 import cn.phpst.mall.service.CounponService;
@@ -52,9 +53,10 @@ public class CouponController {
 
     @ScopeLevel
     @PostMapping("/collect/{id}")
-    public String collectCoupon(@PathVariable Long id) {
-
-        return "payment";
+    public void collectCoupon(@PathVariable Long id) {
+        Long uid = LocalUser.getUser().getId();
+        counponService.collectOneCoupon(uid, id);
+        return;
     }
 
     //POST coupon/collect/{id}

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -22,6 +23,7 @@ public class UserCoupon {
 
     private Long userId;
     private Long couponId;
-    private Short status;
+    private Integer status;
     private Long orderId;
+    private Date createTime;
 }

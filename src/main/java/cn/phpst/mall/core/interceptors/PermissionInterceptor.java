@@ -8,7 +8,6 @@ import cn.phpst.mall.service.UserSevice;
 import cn.phpst.mall.util.JwtToken;
 import com.auth0.jwt.interfaces.Claim;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.Optional;
 
-@Component
 public class PermissionInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private UserSevice userSevice;
@@ -91,6 +89,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        LocalUser.clear();
         super.afterCompletion(request, response, handler, ex);
     }
 
