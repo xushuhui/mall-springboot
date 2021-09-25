@@ -27,10 +27,6 @@ public class CouponPureVO {
     private String remark;
     private Boolean wholeStore;
 
-    public CouponPureVO(Object[] objects) {
-        Coupon coupon = (Coupon) objects[0];
-        BeanUtils.copyProperties(coupon, this);
-    }
 
     public CouponPureVO(Coupon coupon) {
         BeanUtils.copyProperties(coupon, this);

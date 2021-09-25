@@ -19,10 +19,16 @@ public interface CouponRepository extends JpaRepository<Coupon, Long> {
             "a.startTime < :now and a.endTime > :now")
     List<Coupon> findByWholeStore(boolean isWholeStore, Date now);
 
+    @Query("select c from Coupon c join UserCoupon uc on c.id=uc.couponId join User u on u.id=uc.userId where " +
+            "uc.status = 1 and u.id = :uid and c.startTime < :now and c.endTime > :now and uc.orderId is null")
     List<Coupon> findMyAvailable(Long uid, Date now);
 
+    @Query("select c from Coupon c join UserCoupon uc on c.id=uc.couponId join User u on u.id=uc.userId where " +
+            "uc.status = 2 and u.id = :uid and c.startTime < :now and c.endTime > :now and uc.orderId is not null")
     List<Coupon> findMyUsed(Long uid, Date now);
 
+    @Query("select c from Coupon c join UserCoupon uc on c.id=uc.couponId join User u on u.id=uc.userId where " +
+            "uc.status = 2 and u.id = :uid and c.endTime < :now and uc.orderId is  null and uc.status <> 2")
     List<Coupon> findMyExpired(Long uid, Date now);
 
     Optional<Coupon> findById(Long couponId);
