@@ -52,9 +52,10 @@ public class CouponChecker {
         }
     }
 
-    public void canBeUsed(List<SkuOrderBO> skuOrderBOList, BigDecimal serverTotalPrice, BigDecimal orderCategoryPrice) {
+    public void canBeUsed(List<SkuOrderBO> skuOrderBOList, BigDecimal serverTotalPriced) {
+        BigDecimal orderCategoryPrice;
         if (this.coupon.getWholeStore()) {
-            orderCategoryPrice = serverTotalPrice;
+            orderCategoryPrice = serverTotalPriced;
         }
     }
 

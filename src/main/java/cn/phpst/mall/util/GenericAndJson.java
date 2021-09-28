@@ -1,16 +1,15 @@
 package cn.phpst.mall.util;
 
+import cn.phpst.mall.exception.http.ServerErrorException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cn.phpst.mall.exception.http.ServerErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
+import javax.persistence.Converter;
 import java.util.List;
 
-@Component
+@Converter
 public class GenericAndJson {
 
     private static ObjectMapper mapper;

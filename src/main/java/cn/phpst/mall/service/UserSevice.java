@@ -11,6 +11,6 @@ public class UserSevice {
     private UserRepository userRepository;
 
     public User getUserById(Long id) {
-        return userRepository.findFirsById(id);
+        return userRepository.findFirstById(id);
     }
 }
