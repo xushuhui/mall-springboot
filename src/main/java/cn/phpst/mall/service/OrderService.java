@@ -26,12 +26,36 @@ public class OrderService {
 
     @Autowired
     private CouponRepository couponRepository;
-
+    @Autowired
+    private OrderRepository orderRepository;
     @Autowired
     private UserCouponRepository userCouponRepository;
 
+    private void reduceStock(){
+        
+    }
+    public Long placeOrder(Long uid,OrderDTO orderDTO,OrderChecker orderChecker){
+        String orderNo = OrderUtil.makeOrderNo();
+        Order order = Order.builder().orderNo(orderNo).userId(uid).
+        totalPrice(orderDTO.getTotalPrice()).
+        totalCount(orderChecker.getTotalCount()).
+        finalTotalPrice(orderDTO.getFinalTotalPrice()).
+        snapImg(orderChecker.getLeaderImg()).
+        snapTitle(orderChecker.getLeaderTitle()).
+        status(OrderStatus.UNPAID.value()).
+        build();
+
+        order.setSnapAddress(orderDTO.getAddress());
+        order.setSnapItems(orderChecker.getOrderSkuList());
+        orderRepository.save(order);
+        //reduce stock
+        //核销coupon
+        //延迟队列，未支付自动取消
+        return order.getId();
+    }
+
     public void isOk(Long uid, OrderDTO orderDTO) {
-        if (orderDTO.getFinalToatalPrice().compareTo(new BigDecimal("0.00")) <= 0) {
+        if (orderDTO.getFinalToatalPrice().compareTo(BigDecimal::ZERO) <= 0) {
             throw new ParameterException(50011);
         }
 

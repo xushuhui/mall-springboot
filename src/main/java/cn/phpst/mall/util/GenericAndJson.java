@@ -46,7 +46,7 @@ public class GenericAndJson {
            return null;
        }
        try {
-//            T.class
+
            List<T> list = GenericAndJson.mapper.readValue(s, new TypeReference<List<T>>() {
            });
            return list;

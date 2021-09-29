@@ -14,4 +14,5 @@ public class PaymentController {
     public String preWechatOrder(@PathVariable(name = "id") Long id) {
         return "payment";
     }
+    
 }

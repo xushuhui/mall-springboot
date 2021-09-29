@@ -22,6 +22,8 @@ public class OrderController {
     @ScopeLevel
     @PostMapping("")
     public OrderIdVO placeOrder(@RequestBody OrderDTO orderDTO) {
+        //check order
+        //place order
         return null;
     }
 }

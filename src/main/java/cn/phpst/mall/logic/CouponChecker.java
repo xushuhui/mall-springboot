@@ -15,12 +15,12 @@ import java.util.List;
 
 public class CouponChecker {
     private Coupon coupon;
-    private UserCoupon userCoupon;
+
     private IMoneyDiscount iMoneyDiscount;
 
-    public CouponChecker(Coupon coupon, UserCoupon userCoupon, IMoneyDiscount iMoneyDiscount) {
+    public CouponChecker(Coupon coupon, IMoneyDiscount iMoneyDiscount) {
         this.coupon = coupon;
-        this.userCoupon = userCoupon;
+        this.iMoneyDiscount = iMoneyDiscount;
     }
 
     public void isOk() {
@@ -37,7 +37,7 @@ public class CouponChecker {
             case FULL_MINUS:
             case NO_THERSHOLD_MINUS:
                 serverFinalTotalPrice = serverTotalPrice.subtract(this.coupon.getMinus());
-                if (serverFinalTotalPrice.compareTo(new BigDecimal("0")) <= 0) {
+                if (serverFinalTotalPrice.compareTo(BigDecimal::ZERO) <= 0) {
                     throw new ForbiddenException(50008);
                 }
                 break;
@@ -56,14 +56,43 @@ public class CouponChecker {
         BigDecimal orderCategoryPrice;
         if (this.coupon.getWholeStore()) {
             orderCategoryPrice = serverTotalPriced;
+        }else{
+            List<Long> cidList = this.coupon.getCategoryList().stream().map(Category::getId).
+            collect(Collectors.toList());
+            orderCategoryPrice = this.getSumByCategoryList(skuOrderBOList, cidList);
+        }
+        this.couponCanBeUsed(orderCategoryPrice);
+    }
+    private void couponCanBeUsed(BigDecimal orderCategoryPrice) {
+        switch (CouponType.toType(this.coupon.getType())) {
+           
+            case NO_THERSHOLD_MINUS:
+               
+                break;
+            case FULL_OFF:
+             case FULL_MINUS:
+                if (this.coupon.getFullMoney().compareTo(orderCategoryPrice) > 0) {
+                    throw new ForbiddenException(40008);
+                }
+                break;
+            default:
+                throw new ParameterException(40009);
         }
     }
-
-    private BigDecimal getSumByCategoryList() {
-        return null;
+    private BigDecimal getSumByCategoryList(List<SkuOrderBO> skuOrderBOList,List<Long> cidList) {
+        BigDecimal sum = cidList.stream().
+        map(cid -> this.getSumByCategory(skuOrderBOList,cid)).
+        reduce(BigDecimal.ZERO, BigDecimal::add).
+        orElse(BigDecimal.ZERO);
+        return sum;
     }
 
     private BigDecimal getSumByCategory(List<SkuOrderBO> skuOrderBOList, Long cid) {
-        return null;
+        BigDecimal sum = skuOrderBOList.stream()
+        .filter(skuOrderBO -> skuOrderBO.getCid().equals(cid))
+        .map(SkuOrderBO::getPrice)
+        .reduce( BigDecimal::add)
+        .orElse(BigDecimal.ZERO);
+        return sum;
     }
 }
