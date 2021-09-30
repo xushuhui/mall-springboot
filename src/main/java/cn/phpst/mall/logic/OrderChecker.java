@@ -4,7 +4,9 @@ import cn.phpst.mall.bo.SkuOrderBO;
 import cn.phpst.mall.dto.OrderDTO;
 import cn.phpst.mall.dto.SkuInfoDTO;
 import cn.phpst.mall.exception.http.ParameterException;
+import cn.phpst.mall.model.OrderSku;
 import cn.phpst.mall.model.Sku;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,6 +18,8 @@ public class OrderChecker {
     private List<Sku> serverSkuList;
     private CouponChecker couponChecker;
     private Integer maxSkuLimit;
+    @Getter
+    private List<OrderSku> orderSkuList = new ArrayList<>();
 
     public OrderChecker(OrderDTO orderDTO, List<Sku> serverSkuList, CouponChecker couponChecker, Integer maxSkuLimit) {
         this.orderDTO = orderDTO;
@@ -36,14 +40,28 @@ public class OrderChecker {
             this.beyondMaxSkuLimit(skuInfoDTO);
             serverTotalPrice.add(this.calculateSkuOrderPrice(sku, skuInfoDTO));
             skuOrderBOList.add(new SkuOrderBO(sku, skuInfoDTO));
+            this.orderSkuList.add(new OrderSku(sku, skuInfoDTO));
         }
         this.totalPriceIsOk(orderDTO.getTotalPrice(), serverTotalPrice);
 
         if (this.couponChecker != null) {
             this.couponChecker.isOk();
             this.couponChecker.canBeUsed(skuOrderBOList, serverTotalPrice);
-            this.couponChecker.finalTotalPriceIsOk(orderDTO.getFinalToatalPrice(), serverTotalPrice);
+            this.couponChecker.finalTotalPriceIsOk(orderDTO.getFinalTotalPrice(), serverTotalPrice);
         }
+    }
+
+    public String getLeaderTitle() {
+        return this.serverSkuList.get(0).getImg();
+    }
+
+    public String getLeaderImg() {
+        return this.serverSkuList.get(0).getTitle();
+    }
+
+    public Integer getTotalCount() {
+        return this.orderDTO.getSkuInfoList().stream().map(SkuInfoDTO::getCount).
+                reduce(Integer::sum).orElse(0);
     }
 
     private void totalPriceIsOk(BigDecimal clientTotalPrice, BigDecimal serverTotalPrice) {
