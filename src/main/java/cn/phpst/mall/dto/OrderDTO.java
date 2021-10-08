@@ -14,11 +14,13 @@ public class OrderDTO {
     @DecimalMin(value = "0.00", message = "不在合法范围内")
     @DecimalMax(value = "999999999.99", message = "不在合法范围内")
     private BigDecimal totalPrice;
-    private BigDecimal finalToatalPrice;
+    private BigDecimal finalTotalPrice;
 
     private Long couponId;
 
     private List<SkuInfoDTO> skuInfoList;
 
     private OrderAddressDTO address;
+
+
 }

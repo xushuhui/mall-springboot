@@ -19,12 +19,12 @@ public class OrderSku {
     private BigDecimal singlePrice;
     private List<String> specValues;
 
-    public OrderSku(SkuInfoDTO skuInfoDTO, Sku sku, List<String> specValues) {
+    public OrderSku(Sku sku, SkuInfoDTO skuInfoDTO) {
         this.id = sku.getId();
         this.spuId = sku.getSpuId();
         this.finalPrice = sku.getActualPrice().multiply(new BigDecimal(skuInfoDTO.getCount()));
         this.singlePrice = sku.getActualPrice();
-        this.specValues = specValues;
+        this.specValues = sku.getSpecValueList();
         this.count = skuInfoDTO.getCount();
         this.img = sku.getImg();
         this.title = sku.getTitle();
