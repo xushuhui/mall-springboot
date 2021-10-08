@@ -20,6 +20,13 @@
 		<mybatis-plus.version>3.3.0</mybatis-plus.version>
 	</properties>
 
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,10 +79,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- redis -->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springframework.data</groupId>-->
-		<!--			<artifactId>spring-data-redis</artifactId>-->
-		<!--		  </dependency>-->
+	<dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-redis</artifactId>
+		 </dependency>
 		<dependency>
 			<groupId>com.github.dozermapper</groupId>
 			<artifactId>dozer-core</artifactId>
@@ -86,6 +93,16 @@
 			<artifactId>java-jwt</artifactId>
 			<version>3.8.1</version>
 		</dependency>
+		 <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.7.0</version>
+        </dependency>
+		<dependency>
+    <groupId>com.github.wxpay</groupId>
+    <artifactId>WXPay-SDK-Java</artifactId>
+    <version>0.0.4</version>
+</dependency>
 	</dependencies>
 
 	<build>
